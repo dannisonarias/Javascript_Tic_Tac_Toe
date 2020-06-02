@@ -1,0 +1,13 @@
+.position {
+    border: solid 5px goldenrod;
+    margin: 10px;
+
+}
+
+.board-wrapper {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 550px;
+}
+
