@@ -39,14 +39,47 @@ const Game = (() => {
   let currentPlayer = true;
 
   getPlayers = () => {
-    const player1 = playerFactory(displayController.name1, '&#10007;');
-    const player2 = playerFactory(displayController.name2, '&#120420;');
+    const player1 = playerFactory(display.name1, 'X');
+    const player2 = playerFactory(display.name2, 'O');
 
     return { player1, player2 }
   }
 
-  return { getPlayers }
+  clickHandler = (e) => {
+    const cell = e.target
+    let player = currentPlayer ? getPlayers().player1 : getPlayers().player2;
+
+    if (cell.textContent === '') {
+      cell.innerHTML = player.symbol;
+    } else {
+      return
+    }
+
+    if (win(player.symbol)) {
+      console.log(`Player ${player.name} wins.`)
+    }
+
+    currentPlayer = !currentPlayer;
+  }
+
+  win = (symbol) => {
+    return gameBoard.WIN_COMBOS.some(combo => {
+      return combo.every(cell => {
+        return display.cells[cell].textContent === symbol;
+      });
+    });
+  }
+
+  startGame = () => {
+    console.log(getPlayers())
+
+    display.cells.forEach(cell => {
+      cell.addEventListener('click', clickHandler, false);
+    });
+  }
+
+  return { startGame }
 })();
 
 
-console.log(Game.getPlayers())
+console.log(Game.startGame())
