@@ -5,14 +5,18 @@ main {
 /* Board styling */
 
 .position {
-    border: solid 5px goldenrod;
+    border: solid 1px goldenrod;
 }
 
 .board-wrapper {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
-    height: 550px;
+    height: 300px;
+    width: 300px;
+    font-size: 3.4em;
+    text-align: center;
+    border: solid 2px goldenrod;
 }
 /* Restart game Pop up */
 .hidden {

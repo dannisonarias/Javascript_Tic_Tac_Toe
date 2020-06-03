@@ -6,16 +6,54 @@ const playerFactory = (playerName, playerSymbol) => {
 }
 
 const display = (() => {
-  // get cells
+  const startBtn = document.querySelector('#start');
+
   const cells = document.querySelectorAll('.position');
 
-  // Get player names
+  const form = document.querySelector('.form');
+
+  const board = document.querySelector('.board-wrapper');
+
+  // Get player names from inputs
   const name1 = document.querySelector('#player1').value;
   const name2 = document.querySelector('#player2').value;
 
+  // Display player data
+  const data = document.querySelector('.data');
+  // Player 1 
+  const data1 = document.querySelector('#data1');
+  // Player 2
+  const data2 = document.querySelector('#data2');
+
+  displayPlayers = (players) => {
+    let player1 = players.player1;
+    let player2 = players.player2;
+
+    form.classList.add('hidden');
+    data.classList.remove('hidden');
+
+    data1.querySelector('.name').innerText = player1.name;
+    data1.querySelector('.symbol').innerText = player1.symbol;
+    data1.querySelector('.score').innerText = player1.wins;
+
+    data2.querySelector('.name').innerText = player2.name;
+    data2.querySelector('.symbol').innerText = player2.symbol;
+    data2.querySelector('.score').innerText = player2.wins;
+  }
+
+  updateWins = (player) => {
+    if (player.symbol == 'X') {
+      data1.querySelector('.score').innerText = player.wins;
+    } else {
+      data2.querySelector('.score').innerText = player.wins;
+    }
+  }
+
   return {
-    cells,
-    name1, name2
+    cells, board,
+    name1, name2,
+    displayPlayers, updateWins,
+    startBtn
   }
 
 })();
@@ -38,35 +76,43 @@ const gameBoard = (() => {
 
 const Game = (() => {
   let currentPlayer = true;
-
+  var players = {}
   getPlayers = () => {
     const player1 = playerFactory(display.name1, 'X');
     const player2 = playerFactory(display.name2, 'O');
 
-    return { player1, player2 }
+    players = { player1, player2 }
   }
 
+
+
   resetGame = () => {
-    alert("game reset")
+    display.cells.forEach(cell => {
+      cell.innerText = "";
+    })
+    reset_Div.classList.add("hidden")
+    currentPlayer = true;
   }
 
   declareReset = (player) => {
     reset_Div = document.querySelector(".reset-game")
     declare_Winner = document.querySelector(".declare-winner")
     reset_Div.classList.remove("hidden")
-    declare_Winner.innerHTML = (`${player.name} Wins the game`) 
+    declare_Winner.innerHTML = (`${player.name} Wins the game`)
+    player.wins += 1;
+    display.updateWins(player)
   }
 
   checkForWin = (player) => {
-      if (win(player.symbol)){
-        document.querySelector(".rst-game-button").addEventListener("click", resetGame,false)
-        declareReset(player);
-      };
+    if (win(player.symbol)) {
+      document.querySelector(".rst-game-button").addEventListener("click", resetGame, false)
+      declareReset(player);
+    };
   }
 
   clickHandler = (e) => {
     const cell = e.target
-    let player = currentPlayer ? getPlayers().player1 : getPlayers().player2;
+    let player = currentPlayer ? players.player1 : players.player2;
 
     if (cell.textContent === '') {
       cell.innerHTML = player.symbol;
@@ -88,8 +134,9 @@ const Game = (() => {
   }
 
   startGame = () => {
-    console.log(getPlayers())
-
+    getPlayers();
+    display.displayPlayers(players);
+    display.board.classList.remove('hidden');
     display.cells.forEach(cell => {
       cell.addEventListener('click', clickHandler, false);
     });
@@ -98,5 +145,4 @@ const Game = (() => {
   return { startGame }
 })();
 
-
-console.log(Game.startGame())
+display.startBtn.addEventListener('click', Game.startGame, false);
