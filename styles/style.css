@@ -1,72 +1,73 @@
 main {
-    position: relative;
+  position: relative;
 }
 
 /* Board styling */
 
 .position {
-    border: solid 1px goldenrod;
+  border: solid 1px goldenrod;
 }
 
-.position:not(:empty){
-    cursor: not-allowed;
+.position:not(:empty) {
+  cursor: not-allowed;
 }
 
 .board-wrapper {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    height: 400px;
-    width: 400px;
-    font-size: 4.2em;
-    text-align: center;
-    border: solid 2px goldenrod;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 400px;
+  width: 400px;
+  font-size: 4.2em;
+  text-align: center;
+  border: solid 2px goldenrod;
 }
+
 /* Restart game Pop up */
 .hidden {
-    display: none;
+  display: none;
 }
 
 .reset-game {
-    position: absolute;
-    height: 100vh;
-    width: 100%;
-    z-index: 5;
-    background-color: rgba(0, 0, 0, 0.623);
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.623);
 }
 
 .declare-winner {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%);
-    color: white;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%);
+  color: white;
 }
 
 .rst-game-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 /* Players information */
 #data1 {
-    margin: 15px;
-    padding: 25px;
-    width:min-content;
+  margin: 15px;
+  padding: 25px;
+  width: min-content;
 }
 
 #data2 {
-    margin: 15px;
-    padding: 25px;
-    width:min-content;
+  margin: 15px;
+  padding: 25px;
+  width: min-content;
 }
 
 .inactive-player {
-    border: 3px solid gray;
+  border: 3px solid gray;
 }
 
-.active-player{
-    border: 3px solid greenyellow;
+.active-player {
+  border: 3px solid greenyellow;
 }
