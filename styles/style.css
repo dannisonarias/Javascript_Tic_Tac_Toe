@@ -2,10 +2,10 @@ main {
     position: relative;
 }
 
+/* Board styling */
+
 .position {
     border: solid 5px goldenrod;
-    margin: 10px;
-
 }
 
 .board-wrapper {
