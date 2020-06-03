@@ -46,12 +46,21 @@ const Game = (() => {
     return { player1, player2 }
   }
 
+  resetGame = () => {
+    alert("game reset")
+  }
+
+  declareReset = (player) => {
+    reset_Div = document.querySelector(".reset-game")
+    declare_Winner = document.querySelector(".declare-winner")
+    reset_Div.classList.remove("hidden")
+    declare_Winner.innerHTML = (`${player.name} Wins the game`) 
+  }
+
   checkForWin = (player) => {
       if (win(player.symbol)){
-          reset_Div = document.querySelector(".reset-game")
-          declare_Winner = document.querySelector(".declare-winner")
-          reset_Div.classList.remove("hidden")
-          declare_Winner.innerHTML = (`${player.name} Wins the game`)          
+        document.querySelector(".rst-game-button").addEventListener("click", resetGame,false)
+        declareReset(player);
       };
   }
 
