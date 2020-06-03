@@ -1,3 +1,7 @@
+main {
+    position: relative;
+}
+
 .position {
     border: solid 5px goldenrod;
     margin: 10px;
@@ -9,5 +13,32 @@
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     height: 550px;
+}
+/* Restart game Pop up */
+.hidden {
+    display: none;
+}
+
+.reset-game {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.623);
+}
+
+.declare-winner {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%);
+    color: white;
+}
+
+.rst-game-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
 }
 

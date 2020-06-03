@@ -48,7 +48,10 @@ const Game = (() => {
 
   checkForWin = (player) => {
       if (win(player.symbol)){
-          console.log(`${player.name} Wins the game`)
+          reset_Div = document.querySelector(".reset-game")
+          declare_Winner = document.querySelector(".declare-winner")
+          reset_Div.classList.remove("hidden")
+          declare_Winner.innerHTML = (`${player.name} Wins the game`)          
       };
   }
 
