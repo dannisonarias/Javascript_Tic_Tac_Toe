@@ -26,16 +26,20 @@ const display = (() => {
   const board = document.querySelector('.board-wrapper');
 
   // Get player names from inputs
-  const name1 = document.querySelector('#player1').value;
-  const name2 = document.querySelector('#player2').value;
-
+//   const name1 = document.querySelector('#player1').value;
+//   const name2 = document.querySelector('#player2').value;
   // Display player data
   const data = document.querySelector('.data');
   // Player 1 
   const data1 = document.querySelector('#data1');
   // Player 2
   const data2 = document.querySelector('#data2');
-
+    updateNames = () => {
+        const name1 = document.querySelector('#player1').value;
+        const name2 = document.querySelector('#player2').value;
+        names = {name1,name2}
+        return names
+    }
   displayPlayers = (players) => {
     let player1 = players.player1;
     let player2 = players.player2;
@@ -60,7 +64,7 @@ const display = (() => {
 
   return {
     cells, board,
-    name1, name2,
+    updateNames,
     displayPlayers, updateWins,
     startBtn,player1Info,player2Info,
     reset_Div, declare_Winner, resetBtn
@@ -90,9 +94,9 @@ const Game = (() => {
   var availableSlots = 9;
 
   getPlayers = () => {
-    const player1 = playerFactory(display.name1, 'X');
-    const player2 = playerFactory(display.name2, 'O');
-
+    let names = display.updateNames()
+    const player1 = playerFactory(names.name1, 'X');
+    const player2 = playerFactory(names.name2, 'O');
     players = { player1, player2 }
   }
 
