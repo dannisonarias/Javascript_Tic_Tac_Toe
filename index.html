@@ -31,18 +31,7 @@
           <input type="text" id="player2" placeholder="Player 2">
           <button id="start">Start Game</button>
         </div>
-        <div class="data hidden">
-          <div id="data1">
-            <h3 class="name"></h3>
-            <span class="symbol"></span>
-            <span class="score"></span>
-          </div>
-          <div id="data2">
-            <h3 class="name"></h3>
-            <span class="symbol"></span>
-            <span class="score"></span>
-          </div>
-        </div>
+
       </div>
       <div class="board-wrapper hidden">
         <div class="position row-1" id="0"></div>
@@ -55,7 +44,24 @@
         <div class="position row-3" id="7"></div>
         <div class="position row-3" id="8"></div>
       </div>
-
+      <div class="data hidden">
+        <div class="d-flex playerswrapper">
+          <div id="data1" class="active-player">
+            Player1:Name
+            <h3 class="name"></h3>
+            <p>Wins:
+            <span class="score"></span>
+            </p>
+          </div>
+          <div id="data2" class="inactive-player">
+            Player2:Name
+            <h3 class="name"></h3>
+            <p>Wins:
+              <span class="score"></span>
+              </p>
+          </div>
+        </div>
+      </div>
     </div>
 
   </main>

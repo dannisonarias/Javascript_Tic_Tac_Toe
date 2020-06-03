@@ -12,6 +12,8 @@ const playerFactory = (playerName, playerSymbol) => {
 }
 
 const display = (() => {
+  const player1Info = document.querySelector("#data1")
+  const player2Info = document.querySelector("#data2")
   const startBtn = document.querySelector('#start');
   const reset_Div = document.querySelector(".reset-game");
   const resetBtn = document.querySelector(".rst-game-button");
@@ -42,11 +44,9 @@ const display = (() => {
     data.classList.remove('hidden');
 
     data1.querySelector('.name').innerText = player1.name;
-    data1.querySelector('.symbol').innerText = player1.symbol;
     data1.querySelector('.score').innerText = player1.wins;
 
     data2.querySelector('.name').innerText = player2.name;
-    data2.querySelector('.symbol').innerText = player2.symbol;
     data2.querySelector('.score').innerText = player2.wins;
   }
 
@@ -62,7 +62,7 @@ const display = (() => {
     cells, board,
     name1, name2,
     displayPlayers, updateWins,
-    startBtn,
+    startBtn,player1Info,player2Info,
     reset_Div, declare_Winner, resetBtn
   }
 
@@ -141,11 +141,18 @@ const Game = (() => {
     } else {
       return
     }
+  changePlayerTurn = () =>{
+    currentPlayer = !currentPlayer;
+    display.player1Info.classList.toggle("active-player")
+    display.player2Info.classList.toggle("active-player")
+    display.player1Info.classList.toggle("inactive-player")
+    display.player2Info.classList.toggle("inactive-player")
+  }
 
     availableSlots--;
     checkForWin(player);
     checkForTie(player)
-    currentPlayer = !currentPlayer;
+    changePlayerTurn()
   }
 
   win = (symbol) => {

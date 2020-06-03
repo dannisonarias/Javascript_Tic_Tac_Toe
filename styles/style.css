@@ -8,13 +8,17 @@ main {
     border: solid 1px goldenrod;
 }
 
+.position:not(:empty){
+    cursor: not-allowed;
+}
+
 .board-wrapper {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
-    height: 300px;
-    width: 300px;
-    font-size: 3.4em;
+    height: 400px;
+    width: 400px;
+    font-size: 4.2em;
     text-align: center;
     border: solid 2px goldenrod;
 }
@@ -46,3 +50,23 @@ main {
     transform: translate(-50%);
 }
 
+/* Players information */
+#data1 {
+    margin: 15px;
+    padding: 25px;
+    width:min-content;
+}
+
+#data2 {
+    margin: 15px;
+    padding: 25px;
+    width:min-content;
+}
+
+.inactive-player {
+    border: 3px solid gray;
+}
+
+.active-player{
+    border: 3px solid greenyellow;
+}
