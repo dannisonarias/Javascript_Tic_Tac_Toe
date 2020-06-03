@@ -20,6 +20,7 @@ const display = (() => {
 
 })();
 
+// game winning combinations
 const gameBoard = (() => {
   const WIN_COMBOS = [
     [0, 1, 2],
@@ -45,6 +46,12 @@ const Game = (() => {
     return { player1, player2 }
   }
 
+  checkForWin = (player) => {
+      if (win(player.symbol)){
+          console.log(`${player.name} Wins the game`)
+      };
+  }
+
   clickHandler = (e) => {
     const cell = e.target
     let player = currentPlayer ? getPlayers().player1 : getPlayers().player2;
@@ -55,9 +62,7 @@ const Game = (() => {
       return
     }
 
-    if (win(player.symbol)) {
-      console.log(`Player ${player.name} wins.`)
-    }
+    checkForWin(player);
 
     currentPlayer = !currentPlayer;
   }
