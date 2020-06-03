@@ -6,26 +6,12 @@ The purpose of this project is to demonstrate Object oriented programming in Jav
 ![sample](ss.png)
 
 ## Built With
-
+- HTML & CSS
+- Bootstrap
+- JavaScript/ES6
 
 ## Live Demo
 
-
-## Getting Started
-
-
-
-### Prerequisites
-
-
-
-### Setup
-
-Setup database with:
-### Usage
-### Deployment
-
-TBA
 
 ## Author
 
@@ -44,7 +30,7 @@ TBA
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](https://github.com/dannisonarias/Javascript_Tic_Tac_Toe/issues).
 
 ## Show your support
 
