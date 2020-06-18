@@ -1,3 +1,5 @@
+import './style.scss';
+
 const playerFactory = (playerName, playerSymbol) => {
   let name;
   if (playerName === '') {
