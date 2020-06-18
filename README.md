@@ -1,6 +1,6 @@
 # Tic Tac Toe Javascript Game
 
-The purpose of this project is to demonstrate Object oriented programming in Javascript by building a Tic Tac Toe. We use Factory Functions instead of Constructors, mainly to avoids [the common problems when using Constructors](http://programmersought.com/article/1489923583/;jsessionid=F19A3E3A71789826419AE74550D104A2). We use Module Pattern to demonstrate the benefit of using private and public functions (closure). We create a user interface to play the game. 
+The purpose of this project is to demonstrate Object oriented programming in Javascript by building a Tic Tac Toe. We use Factory Functions instead of Constructors, mainly to avoids [the common problems when using Constructors](http://programmersought.com/article/1489923583/;jsessionid=F19A3E3A71789826419AE74550D104A2). We use Module Pattern to demonstrate the benefit of using private and public functions (closure). We create a user interface to play the game.
 
 ## Screenshot
 ![sample](Capture.PNG)
