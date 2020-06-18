@@ -1,0 +1,36 @@
+{
+  "name": "Javascript_Tic_Tac_Toe",
+  "version": "1.0.0",
+  "description": "The purpose of this project is to demonstrate Object oriented programming in Javascript by building a Tic Tac Toe. We use Factory Functions instead of Constructors, mainly to avoids [the common problems when using Constructors](http://programmersought.com/article/1489923583/;jsessionid=F19A3E3A71789826419AE74550D104A2). We use Module Pattern to demonstrate the benefit of using private and public functions (closure). We create a user interface to play the game.",
+  "main": "stylelint.config.js",
+  "scripts": {
+    "test": "jest",
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dannisonarias/Javascript_Tic_Tac_Toe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dannisonarias/Javascript_Tic_Tac_Toe/issues"
+  },
+  "homepage": "https://github.com/dannisonarias/Javascript_Tic_Tac_Toe#readme",
+  "devDependencies": {
+    "css-loader": "^3.5.3",
+    "file-loader": "^6.0.0",
+    "node-sass": "^4.14.1",
+    "sass": "^1.26.7",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "babel-loader": "^8.1.0",
+    "jest": "^26.0.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
+}
