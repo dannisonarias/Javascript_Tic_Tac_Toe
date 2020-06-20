@@ -41,9 +41,9 @@ const Game = (() => {
 
   const testCell = (s, cell) => {
     if (cell === undefined) {
-      return false
+      return false;
     }
-    return cell.textContent === s
+    return cell.textContent === s;
   };
 
   const win = (s, cells) => gameBoard.WINS.some(c => c.every(b => testCell(s, cells[b])));
