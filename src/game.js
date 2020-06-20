@@ -39,10 +39,17 @@ const Game = (() => {
     return true;
   };
 
-  const win = (s, board) => board.WINS.some(c => c.every(b => display.cells[b].textContent === s));
+  const testCell = (s, cell) => {
+    if (cell === undefined) {
+      return false
+    }
+    return cell.textContent === s
+  };
+
+  const win = (s, cells) => gameBoard.WINS.some(c => c.every(b => testCell(s, cells[b])));
 
   const checkForTie = (player) => {
-    if (availableSlots === 0 && !win(player.symbol, gameBoard)) {
+    if (availableSlots === 0 && !win(player.symbol, display.cells)) {
       display.setReset(resetGame);
       declareReset();
       return true;
@@ -51,7 +58,7 @@ const Game = (() => {
   };
 
   const checkForWin = (player) => {
-    if (win(player.symbol, gameBoard)) {
+    if (win(player.symbol, display.cells)) {
       display.setReset(resetGame);
       declareReset(player);
       return true;
@@ -82,7 +89,7 @@ const Game = (() => {
   };
 
   return {
-    startGame, checkForWin, checkForTie, declareReset, getPlayers, resetGame,
+    startGame, win, checkForWin, checkForTie, declareReset, getPlayers, resetGame,
   };
 })();
 

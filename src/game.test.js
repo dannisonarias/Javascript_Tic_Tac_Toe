@@ -1,4 +1,5 @@
 import Game from './game';
+import display from './display'
 
 describe('Game setup', () => {
   describe('get players', () => {
@@ -166,6 +167,26 @@ describe('Game setup', () => {
     it('resets currentPlayer to true', () => {
       resetGame();
       expect(currentPlayer).toBe(true);
+    });
+  });
+
+  describe('win', () => {
+    it('returns true if 3 cells match a win combination', () => {
+      const cells = Array(9).fill(document.createElement('DIV'));
+      for (let i = 0; i < 3; i += 1) {
+        cells[i].textContent = "X";
+      }
+
+      expect(Game.win('X', cells)).toBe(true);
+    });
+
+    it('returns false if no row matches a win combination', () => {
+      const cells = Array(9).fill(document.createElement('DIV'));
+      for (let i = 0; i < cells.length; i += 1) {
+        cells[i].textContent = "";
+      }
+
+      expect(Game.win('X', cells)).toBe(false);
     });
   });
 });
