@@ -37,17 +37,17 @@ const Game = (() => {
     }
   };
 
-  const win = (s) => gameBoard.WINS.some(c => c.every(b => display.cells[b].textContent === s));
+  const win = (s, board) => board.WINS.some(c => c.every(b => display.cells[b].textContent === s));
 
   const checkForTie = (player) => {
-    if (availableSlots === 0 && !win(player.symbol)) {
+    if (availableSlots === 0 && !win(player.symbol, gameBoard)) {
       display.setReset(resetGame);
       declareReset();
     }
   };
 
   const checkForWin = (player) => {
-    if (win(player.symbol)) {
+    if (win(player.symbol, gameBoard)) {
       display.setReset(resetGame);
       declareReset(player);
     }
@@ -75,7 +75,7 @@ const Game = (() => {
     display.initializeScreen(players, clickHandler);
   };
 
-  return { startGame };
+  return { startGame, checkForWin, checkForTie, win, declareReset, resetGame, getPlayers };
 })();
 
 export default Game;
