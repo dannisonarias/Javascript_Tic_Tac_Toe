@@ -11,6 +11,7 @@ const Game = (() => {
     const player1 = playerFactory(names.name1, 'X');
     const player2 = playerFactory(names.name2, 'O');
     players = { player1, player2 };
+    return players;
   };
 
   const resetGame = () => {
@@ -29,12 +30,13 @@ const Game = (() => {
     if (!player) {
       display.showReset();
       display.displayTie();
-    } else {
-      display.showReset();
-      display.displayWinner(player);
-      player.wins += 1;
-      display.updateWins(player);
+      return false;
     }
+    display.showReset();
+    display.displayWinner(player);
+    player.wins += 1;
+    display.updateWins(player);
+    return true;
   };
 
   const win = (s, board) => board.WINS.some(c => c.every(b => display.cells[b].textContent === s));
@@ -43,14 +45,18 @@ const Game = (() => {
     if (availableSlots === 0 && !win(player.symbol, gameBoard)) {
       display.setReset(resetGame);
       declareReset();
+      return true;
     }
+    return false;
   };
 
   const checkForWin = (player) => {
     if (win(player.symbol, gameBoard)) {
       display.setReset(resetGame);
       declareReset(player);
+      return true;
     }
+    return false;
   };
 
   const clickHandler = (e) => {
@@ -75,7 +81,9 @@ const Game = (() => {
     display.initializeScreen(players, clickHandler);
   };
 
-  return { startGame, checkForWin, checkForTie, win, declareReset, resetGame, getPlayers };
+  return {
+    startGame, checkForWin, checkForTie, declareReset, getPlayers, resetGame,
+  };
 })();
 
 export default Game;
