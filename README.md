@@ -20,7 +20,7 @@ The purpose of this project is to demonstrate Object oriented programming in Jav
 - JavaScript/ES6
 
 ## Live Demo
-[View Live Demo](https://raw.githack.com/dannisonarias/Javascript_Tic_Tac_Toe/logic_and_ui/index.html)
+[View Live Demo](https://rawcdn.githack.com/dannisonarias/Javascript_Tic_Tac_Toe/488edd3555e569e167baf5a49eb527f93eceac8e/dist/index.html)
 
 ## Author
 
